@@ -1,0 +1,1154 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url("/assets/fonts/Gilroy-Semibold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/assets/fonts/Gilroy-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/assets/fonts/Gilroy-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/assets/fonts/Gilroy-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+    cursor: pointer;
+    font-family: "Plus Jakarta Sans";
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    background: #ffffff;
+    color: #1E1E1E;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: "Plus Jakarta Sans";
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.container {
+    max-width: 1277px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+}
+ /***************************************************/
+/****************** HEADER NAVBAR *******************/
+ /***************************************************/
+
+.header {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'logo toggle'
+    'nav nav';
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem ;
+}
+.header__brand{
+    grid-area: logo;
+}
+
+.header__nav {
+    color: #FFF;
+    grid-area: nav;
+    display: none;
+}
+
+.header__item{
+    font-family: "Plus Jakarta Sans";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+    cursor: pointer;
+    padding: .75rem 0;
+    width: 100%;
+}
+.header__toggle{
+    padding: 0.5rem ;
+    display: block;
+    border: none;
+    background: #FFF;
+    backdrop-filter: blur(10px);
+    grid-area: toggle;
+    justify-self: end;
+}
+.header__toggle svg {
+    display: block;
+}
+.header__menu{
+    display: flex;
+    column-gap: 2.5rem;
+    align-items: center;
+}
+.header__submenu{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+    display: none;
+}
+
+.header__link--btn{
+    background-color: white;
+    color: #1A49D0;
+    padding: 12px 24px ;
+}
+
+.sub-open.header__submenu{
+    display: flex;
+}
+.header__submenu li{
+    
+}
+.header__submenu__link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__submenu__arrow {
+    padding: 5px ;
+    color: #BEBEBE;
+}
+.header__submenu li:hover
+.header__submenu__arrow {
+    background-color: #1948CF;
+    padding: 5px 18px;
+    color: white;
+    color: #BEBEBE;
+}
+.header.open{
+    background-color: #1948CF;
+    z-index: 9999;
+}
+.open .header__nav{
+    display: block;
+    padding: 2rem 0;
+}
+.open .header__nav .header__menu{
+    flex-direction: column;
+    align-items: start;
+}
+
+@media screen and (width > 1100px) {
+    .header {
+        grid-template-areas: 'logo nav ' ;
+        padding: 1rem 3rem ;
+    }
+    .open.header {
+        background-color: transparent;
+    }
+    .header__nav {
+        display: block;
+    }
+    .header__toggle{
+     display: none;
+    }
+    .open .header__nav{
+        background-color: transparent;
+        padding: 0;
+        position: static;
+    }
+    .open .header__nav .header__menu{
+        flex-direction: row;
+    }
+    .header__item{
+        width: initial;
+    }
+
+    .sub-open.header__submenu{
+        display: flex;
+        position: absolute;
+        width: 400px;
+        background-color: white;
+        color: #000 ;
+
+    }
+
+    .sub-open.header__submenu li {
+        padding: 0.81rem 1rem;
+    }
+}
+
+
+
+
+ /***************************************************/
+/************************* Hero *********************/
+ /***************************************************/
+.home-hero {
+    background-image: url('./images/BG.png');
+    background-clip: border-box;
+    background-size: cover;
+    padding: 1rem 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    margin-bottom: 2.25rem;
+}
+
+.home-hero__content {
+    margin-top: 270px;
+    color: #FFF;
+    font-size: 1rem;
+    font-style: normal;
+    font-family: "Plus Jakarta Sans";
+}
+
+.home-hero__lead {
+    font-weight: 600;
+    line-height: 127%;
+    margin-bottom: 23px;
+}
+
+.home-hero__heading {
+    font-weight: 500;
+    line-height: 138%;
+    font-size: 1.3rem;
+    margin-bottom: 36px;
+}
+
+.home-hero__heading strong {
+    display: block;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 138%;
+}
+
+.home-hero__cta {
+    padding: 1rem 2rem;
+    background: #FFF;
+    backdrop-filter: blur(10px);
+    color: #1B49D0;
+    font-weight: 700;
+    line-height: 150%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.home-hero__contact__lead {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-variation-settings: "wght" 500, "wdth" 100, "ital" 0;
+    font-weight: 500;
+    line-height: 172%;
+}
+
+.home-states {
+    margin-bottom: 2.25rem;
+}
+
+.home-states__heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 137%;
+    letter-spacing: -0.015rem;
+    margin: 0 0 0.5rem;
+}
+
+.home-states__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 188%;
+    margin-block: 0 1.25rem;
+}
+
+.home-states__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.home-states_item {
+    border-top: 2px solid #7D59CB;
+    background: #FFF;
+    box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-states_item:nth-child(1),
+.home-states_item:nth-child(2) {
+    grid-column: span 2;
+}
+
+.home-states__number {
+    color: #1948CF;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 100%;
+
+}
+
+.home-states__label {
+    color: #000;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 127%;
+}
+
+/******************************************/
+/************* WHO WE ARE******************/
+/******************************************/
+.home-about {
+    margin-bottom: 1.81rem;
+}
+
+.home-about__content {
+    padding: 3.5rem 1.25rem 2.62rem;
+    background: #1948CF;
+    color: white;
+}
+
+.home-about__lead {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 148%;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1rem;
+}
+
+.home-about__heading {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 137%;
+    letter-spacing: -0.015rem;
+    margin-bottom: 1rem;
+}
+
+.home-about__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 168%;
+}
+
+.text--bold {
+    font-weight: 700;
+}
+
+/******************************************/
+/************* Services ******************/
+/******************************************/
+
+.home-services {
+    margin-bottom: 5rem;
+}
+
+.home-services__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.home-services__item {
+    background: #FFF;
+
+    box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.15);
+}
+
+.home-service__image-container {}
+
+.home-service__image {}
+
+.home-service__content {
+    padding: 1.19rem 1.5rem 1.94rem;
+}
+
+.home-service__heading {
+    max-width: 17rem;
+    color: #1E1E1E;
+    font-family: Gilroy;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 138%;
+    margin-bottom: 0.5rem;
+}
+
+.home-service__text {
+    color: #373737;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%;
+}
+
+/******************************************/
+/************* Case studies ***************/
+/******************************************/
+.home-studies {
+    margin-bottom: 5.5rem;
+}
+
+.home-studies__header {
+    margin-bottom: 2rem;
+}
+
+.home-studies__heading {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 137%;
+    letter-spacing: -0.015rem;
+    margin-bottom: 0.5rem;
+}
+
+.home-studies__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 188%;
+}
+
+.home-studies__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.home-study {
+    position: relative;
+    min-height: 420px;
+}
+
+.home-study__image-container {
+    min-height: 100%;
+    height: 100%;
+    min-width: 100%;
+}
+
+.home-study__image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-study-content {
+    background: #1948CF;
+    color: #FFF;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 12px;
+}
+
+.home-study__more {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+}
+
+.home-study__heading {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 127%;
+    margin-bottom: 0.5rem;
+}
+
+.home-study__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+/******************************************/
+/********************* TEAM ***************/
+/******************************************/
+.home-team {
+    background: #1948CF;
+    padding: 1.81rem 0 1.14rem;
+    color: #FFF;
+    margin-bottom: 1.5rem;
+}
+
+.home-team-content {
+    padding-inline: 0;
+}
+
+.home-team-header {
+    max-width: 19rem;
+    margin: auto;
+    text-align: center;
+
+}
+
+.home-team-title {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 148%;
+    letter-spacing: 0.08rem;
+    display: block;
+}
+
+.home-team-hiring {
+    display: inline-block;
+    background: #FFF;
+    padding: 0.25rem 0.5rem;
+    color: #1948CF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 148%;
+    margin-bottom: 1.25rem;
+}
+
+.home-team-heading {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 147%;
+    letter-spacing: -0.015rem;
+    margin-bottom: 1rem;
+}
+
+.home-team__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 168%;
+    margin: 0 1.22rem 3rem;
+    text-align: center;
+}
+
+.home-team__list-wraper {
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 2.63rem;
+}
+
+.home-team__list-wraper::-webkit-scrollbar {
+    display: none;
+}
+
+.home-team__list {
+    margin-left: 1.25rem;
+    display: flex;
+    column-gap: 0.72rem;
+    flex-wrap: nowrap;
+
+}
+
+.home-member {}
+
+.home-member__fegure {
+    position: relative;
+    width: 15.8rem;
+
+}
+
+.home-member__photo {
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-member__info {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0.8rem;
+    right: 0.8rem;
+    background: #FFF;
+    color: #1E1E1E;
+    padding: 0.8rem;
+}
+
+.home-member__name {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 108%;
+    margin-bottom: 0.25rem;
+}
+
+.home-member__jobtitle {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.home-team__more {
+    display: inline-block;
+    border: 1px solid #FFF;
+    background: #1A48CF;
+    backdrop-filter: blur(8.244384765625px);
+    font-size: 0.82444rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    margin-left: 1.22rem;
+    padding: 0.8rem 1.65rem;
+}
+
+/******************************************/
+/**************** Contact Us **************/
+/******************************************/
+
+.home-contactus {
+    padding: 0 1rem;
+    color: #0C1013;
+    margin-bottom: 7.5rem;
+}
+
+
+.home-contactus__content {}
+
+.home-contactus__heading {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 127%;
+    margin-bottom: 1.87rem;
+    max-width: 18rem;
+}
+
+.home-contactus__text {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin-bottom: 1.5rem;
+}
+
+.home-contactus__list {
+    list-style: disc;
+    margin-left: 1.5rem;
+    color: #0C1013;
+    font-family: "Plus Jakarta Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.home-contactus__form {}
+
+.home-form-row {}
+
+.home-contactus__label {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 127%;
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: .63rem;
+}
+
+.home-contactus__input {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 127%;
+    padding: 0.88rem 1rem;
+    width: 100%;
+}
+
+.home-contactus-cta {
+    background: #1948CF;
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    border: none;
+    padding: .75rem 1.5rem;
+    color: white;
+    font-family: Gilroy;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0.0225rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+/******************************************/
+/**************** Footer **************/
+/******************************************/
+
+.footer {
+    background: #0E2872;
+    padding: 3.6rem 0;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.footer-column {}
+
+.footer-brand {
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.footer-about {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.footer-heading {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+
+}
+
+.footer-list {}
+
+.footer-list li {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    margin-block: 1rem;
+}
+
+.social-list {
+    display: flex;
+    gap: 1.31rem;
+    margin-top: 2rem;
+}
+
+/*****************************************/
+/**************** DESKTOP*****************/
+/*****************************************/
+
+
+/*********** Desktop Hero ****************/
+@media screen and (width > 920px) {
+    .home-hero__lead {
+        font-size: 1.5rem;
+        margin-bottom: 1.87rem;
+    }
+
+    .home-hero__heading {
+        font-size: 3.4375rem;
+        margin-bottom: 6rem;
+    }
+
+    .home-hero__heading strong {
+        font-size: 6rem;
+    }
+
+    .home-hero__contact {
+        display: flex;
+        max-width: 49rem;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .home-hero__contact__separator {
+        width: 0.125rem;
+        height: 3.0625rem;
+        background-color: #FFF;
+    }
+
+    .home-hero__cta {
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    .home-hero__contact__lead {
+        font-size: 1.125rem;
+    }
+
+    /********** DESKTOP STATES ***********/
+    .home-states {
+        margin-bottom: 9.5rem;
+    }
+
+    .home-states__heading {
+        font-size: 3.5rem;
+        font-weight: 500;
+        line-height: 137%;
+        letter-spacing: -0.035rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-states__text {
+        font-size: 1.125rem;
+        margin-block: 0 3rem;
+    }
+
+    .home-states__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .home-states_item:nth-child(1),
+    .home-states_item:nth-child(2) {
+        grid-column: span 1;
+    }
+
+    .home-states_item {
+        text-align: left;
+        border-top-width: 5px;
+    }
+
+    .home-states__number {
+        font-size: 6.5rem;
+    }
+
+    .home-states__label {
+        font-size: 1.25rem;
+    }
+
+    /*********  DESKTOP ABOUT ************/
+    .home-about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: #1948CF;
+        margin-bottom: 8.75rem;
+
+    }
+
+    .home-about__content {
+        max-width: calc(1277px / 2);
+        justify-self: right;
+        align-self: center;
+    }
+
+    .home-about__heading {
+        font-size: 3.5rem;
+        letter-spacing: -0.035rem;
+    }
+
+    .home-about__text {
+        font-size: 1.125rem;
+    }
+
+    /************* DESKTOP SERVICES*********/
+
+    .home-services__list {
+        position: relative;
+    }
+
+    .home-services__item {
+        position: sticky;
+        top: 2rem;
+    }
+
+    .home-service__content {
+        position: absolute;
+        top: 8rem;
+        left: 4;
+        max-width: 31rem;
+    }
+
+    .home-service__heading {
+        font-size: 2.5rem;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .home-service__text {
+        font-size: 1rem;
+    }
+
+    /******* DESKTOP STUDIES **********/
+    .home-study-content {
+        inset: auto 1rem 1rem;
+    }
+
+    .home-study__heading {
+        max-width: 31rem;
+        font-size: 1.5rem;
+    }
+
+    .home-studies__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home-study:nth-child(1) {
+        grid-column: span 2;
+    }
+
+    .home-study:nth-child(1) .home-study-content {
+        width: 390px;
+    }
+
+    .home-study-content {
+        font-size: 1.25rem;
+        margin-bottom: 0.63rem;
+        padding: 1rem;
+    }
+
+    .home-study__text {
+        font-size: 1rem;
+    }
+
+    /******** DESKTOP TEAM ************/
+.home-team{
+    padding-block: 4.5rem 4.88rem;
+    text-align: center;
+}
+    .home-team-header {
+        max-width: 70rem;
+    }
+
+    .home-team-heading {
+        font-size: 3.5rem;
+        margin-inline: auto;
+    }
+
+    .home-team__text {
+        font-size: 1.125rem;
+        max-width: 70rem;
+        margin-inline: auto;
+    }
+.home-member__fegure{
+    width: 19.375rem;
+}
+    .home-member__info{
+        padding: 1rem;
+    }
+    .home-member__name {
+        font-size: 1.25rem;
+    }
+    .home-member__jobtitle{
+        font-size: 1rem;
+    }
+
+    .home-team__more{
+        display: inline-block;
+        padding: 1rem 2rem;
+    }
+
+    /********** DESKTOP CONTACTUS**********/
+
+    .home-contactus{
+        display: flex;
+        gap: 6rem;
+        align-items: center;
+        margin-top: 9rem;
+    }
+    .home-contactus__content{
+        max-width: 31rem;
+        flex-shrink: 1;
+    }
+    .home-contactus__form{
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    .home-form-row{
+        display: flex;
+        justify-content: stretch;
+        gap: 1rem;
+    }
+
+    .home-form-row div{
+        width: 100%;
+    }
+
+    .home-contactus__heading{
+        font-size: 2.5rem;
+    }
+    .home-contactus__text{
+        font-size: 1rem;
+    }
+    /******** DESKTOP FOOTER ************/
+    .footer{
+        padding-block: 4rem;
+    }
+    .footer-content{
+        flex-direction: row;
+        column-gap: 6rem;
+    }
+    .footer-about{
+        max-width: 20rem;
+    }
+    .footer-heading{
+        font-size: 1rem;
+    }
+    .footer-list li {
+        font-size: 1rem;
+    }
+    .footer-column:nth-child(1) {
+        width:25rem;
+    }
+    .footer-column:nth-child(2) {
+        width: 14rem;
+    }
+}
