@@ -336,7 +336,7 @@ body {
 /************************* Hero *********************/
  /***************************************************/
 .home-hero {
-    background-image: url('./images/BG.png');
+    background-image: url('./images/BG.webp');
     background-clip: border-box;
     background-size: cover;
     padding: 1rem 0;
